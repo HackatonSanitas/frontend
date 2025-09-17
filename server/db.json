@@ -1,0 +1,11 @@
+ { 
+    "medication": 
+    {
+      "id": 1,
+      "name": "Paracetamol",
+      "dose": "500mg",
+      "frecuency": "cada 8 horas",
+      "Next_dose": "2025-09-17T18:00:00",
+      "Status": "pendiente"
+    }
+}
