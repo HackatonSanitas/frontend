@@ -1,0 +1,17 @@
+.reminders-page {
+    display: flex;
+    background-color: #f2f6fb;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.reminders-page__sidebar {
+    width: 20%;
+    padding: 2rem;
+    background-color: #e9eef4;
+}
+
+.reminders-page__content {
+    flex-grow: 1;
+    padding: 2rem;
+}
