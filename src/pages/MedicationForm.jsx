@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import "../styles/medicationForm.css";
+import "../style/medicationForm.css";
 import { medicationApi } from "../services/medicationApi"; 
 
 export default function MedicationForm() {
   const [id] = useState("Automático");
-  const [medication, setName] = useState("");
+
+  const [medication, setMedication] = useState("");
   const [dose, setDose] = useState("");
   const [startDate, setStartDate] = useState("");
   const [days, setDays] = useState("");
@@ -18,9 +19,8 @@ export default function MedicationForm() {
   const navigate = useNavigate(); 
   const hasEmpty = (...vals) => vals.some((v) => String(v).trim() === "");
 
-  // ESTE es el envío real (POST)
   const handleSubmit = async (e) => {
-    e?.preventDefault?.();      // por si lo llamas desde <form onSubmit>
+    e?.preventDefault?.();
     setError("");
     setSuccess("");
 
@@ -29,32 +29,34 @@ export default function MedicationForm() {
       return;
     }
 
-    // ADAPTA las claves a tu DTO de Spring si se llaman distinto
     const newMedication = {
-      medication,                // nombre del medicamento
-      dose,                // dosis (texto, p.ej. "200 mg")
-      startDate,           // "YYYY-MM-DD"
-      days: Number(days),  // número de días
-      schedule             // "HH:mm"
+      medication,           // nombre del medicamento
+      dose,
+      startDate,            // "YYYY-MM-DD"
+      days: Number(days),   // número de días
+      schedule              // "HH:mm"
     };
 
     try {
       setIsSubmitting(true);
-
-      // ⬅️ Aquí llamas a TU POST real
       const { data } = await medicationApi.create(newMedication);
 
       setSuccess("✅ Medicamento guardado correctamente.");
-      setName(""); setDose(""); setStartDate(""); setDays(""); setSchedule("");
+
+      // limpiamos el formulario
+      setMedication("");
+      setDose("");
+      setStartDate("");
+      setDays("");
+      setSchedule("");
 
       console.log("Respuesta del backend:", data);
 
-      // Opcional: ir al listado para verlo creado
-       setTimeout(() => navigate("/medications"), 800);
+      // navegar al listado tras guardar
+      setTimeout(() => navigate("/medications"), 800);
 
     } catch (err) {
       console.error(err);
-      // Mensaje más informativo si viene error del backend:
       const apiMsg = err?.response?.data?.message || err?.message || "";
       setError(`❌ No se pudo guardar. ${apiMsg}`);
     } finally {
@@ -67,19 +69,16 @@ export default function MedicationForm() {
       <div className="card">
         <header className="card-header">
           <div className="brand">Sanitas</div>
-          <div className="hello">¡Hola, Cliente!</div>
         </header>
 
-        {/* Usa <form> para permitir Enter */}
         <form className="form" onSubmit={handleSubmit} noValidate>
-         
           <div className="row">
-            <label>Nombre</label>
+            <label>Medicamento</label>
             <input
               type="text"
               placeholder="Ibuprofeno"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={medication}                        
+              onChange={(e) => setMedication(e.target.value)} 
             />
           </div>
 
