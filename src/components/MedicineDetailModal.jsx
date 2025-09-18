@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import "./MedicineDetailModal.css"; // Importamos los estilos CSS clásicos
+import "./MedicineDetailModal.css"; 
 
 export default function MedicineDetailModal({ isOpen, onClose, medicine, onEdit, onDelete }) {
-  // Permitir cerrar con tecla ESC
+ 
   useEffect(() => {
     function handleEsc(e) {
       if (e.key === "Escape") onClose();
@@ -22,7 +22,7 @@ export default function MedicineDetailModal({ isOpen, onClose, medicine, onEdit,
         aria-labelledby="detalle-title"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
+        {}
         <div className="modal-header">
           <h2 id="detalle-title">Detalle de Medicación</h2>
           <button onClick={onClose} className="close-btn" aria-label="Cerrar modal">
@@ -30,7 +30,7 @@ export default function MedicineDetailModal({ isOpen, onClose, medicine, onEdit,
           </button>
         </div>
 
-        {/* Información del medicamento */}
+        {}
         <div className="modal-body">
           <p><strong>Nombre:</strong> {medicine.name}</p>
           <p><strong>Dosis:</strong> {medicine.dose}</p>
