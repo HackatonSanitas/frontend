@@ -5,6 +5,7 @@
   padding: 2rem;
   min-height: calc(85vh - 80px); 
   background-color: #f8f9fa;
+  gap: 3rem;
 }
 
 .home__content {

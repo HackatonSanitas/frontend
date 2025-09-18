@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Header from "../../components/header/Header";
-import portada from "../../assets/image5.svg";
+import portada from "../../assets/imagen5.png";
 
 const Home = () => {
   return (
