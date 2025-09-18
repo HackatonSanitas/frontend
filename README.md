@@ -188,7 +188,6 @@ Este proyecto ha sido desarrollado por un talentoso equipo de desarrolladores:
 
 *Agradecemos el esfuerzo y dedicación de cada miembro del equipo para hacer realidad esta aplicación.*
 
-
 ## 🌐 Enlaces
 
 - [Sanitas Oficial](https://www.sanitas.es)
