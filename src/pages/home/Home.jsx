@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./Home.css";
 import Header from "../../components/header/Header";
 import portada from "../../assets/imagen5.png";
@@ -15,7 +16,7 @@ const Home = () => {
             Nuestra aplicación te ayuda a organizar la dosificación de tus
             medicamentos de manera sencilla y segura.
           </p>
-          <button className="home__button">Empieza ahora</button>
+          <Link to="/recordatorios" className="home__button">Empieza ahora</Link>
         </div>
       </main>
 
