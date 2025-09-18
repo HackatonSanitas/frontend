@@ -5,7 +5,7 @@ import { medicationApi } from "../services/medicationApi";
 
 export default function MedicationForm() {
   const [id] = useState("Automático");
-  const [name, setName] = useState("");
+  const [medication, setName] = useState("");
   const [dose, setDose] = useState("");
   const [startDate, setStartDate] = useState("");
   const [days, setDays] = useState("");
@@ -24,14 +24,14 @@ export default function MedicationForm() {
     setError("");
     setSuccess("");
 
-    if (hasEmpty(name, dose, startDate, days, schedule)) {
+    if (hasEmpty(medication, dose, startDate, days, schedule)) {
       setError("Por favor, completa todos los campos.");
       return;
     }
 
     // ADAPTA las claves a tu DTO de Spring si se llaman distinto
     const newMedication = {
-      name,                // nombre del medicamento
+      medication,                // nombre del medicamento
       dose,                // dosis (texto, p.ej. "200 mg")
       startDate,           // "YYYY-MM-DD"
       days: Number(days),  // número de días
