@@ -9,28 +9,11 @@ export default function MedicationsPage() {
   const [isOpen, setIsOpen] = useState(false);
 
   // cargar medicamentos desde backend
-  // Datos de prueba mientras no usamos backend
-useEffect(() => {
-  setMeds([
-    {
-      id: 1,
-      name: "Paracetamol Extra",
-      dose: "500mg",
-      frequency: "Cada 8 horas",
-      nextDose: "18:00",
-      status: "Activo"
-    },
-    {
-      id: 2,
-      name: "Azithromycin",
-      dose: "250mg",
-      frequency: "Cada 12 horas",
-      nextDose: "20:00",
-      status: "Pendiente"
-    }
-  ]);
-}, []);
-
+  useEffect(() => {
+    medicationApi.getAll()
+      .then((res) => setMeds(res.data))
+      .catch((err) => console.error("Error cargando medicamentos:", err));
+  }, []);
 
   const openModal = (med) => {
     setSelected(med);
