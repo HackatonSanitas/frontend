@@ -9,7 +9,7 @@ function App() {
       <Header />
 
       <Routes>
-       
+        {/* tus páginas */}
       </Routes>
 
      
