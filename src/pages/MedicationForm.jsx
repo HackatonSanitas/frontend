@@ -30,20 +30,19 @@ export default function MedicationForm() {
     }
 
     const newMedication = {
-      medication,           // nombre del medicamento
+      medication,           
       dose,
-      startDate,            // "YYYY-MM-DD"
-      days: Number(days),   // número de días
-      schedule              // "HH:mm"
+      startDate,           
+      days: Number(days),  
+      schedule              
     };
 
     try {
       setIsSubmitting(true);
       const { data } = await medicationApi.create(newMedication);
 
-      setSuccess("✅ Medicamento guardado correctamente.");
+      setSuccess(" Medicamento guardado correctamente.");
 
-      // limpiamos el formulario
       setMedication("");
       setDose("");
       setStartDate("");
@@ -52,13 +51,13 @@ export default function MedicationForm() {
 
       console.log("Respuesta del backend:", data);
 
-      // navegar al listado tras guardar
+    
       setTimeout(() => navigate("/medications"), 800);
 
     } catch (err) {
       console.error(err);
       const apiMsg = err?.response?.data?.message || err?.message || "";
-      setError(`❌ No se pudo guardar. ${apiMsg}`);
+      setError(` No se pudo guardar. ${apiMsg}`);
     } finally {
       setIsSubmitting(false);
     }
