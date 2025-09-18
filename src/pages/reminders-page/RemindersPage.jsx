@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './RemindersPage.css';
 import ReminderList from '../../components/reminder-list/ReminderList';
-//import Sidebar from '../layout/Sidebar';
+import Sidebar from '../../layout/sidebar/Sidebar';
 
 
 const MOCK_REMINDERS = [
@@ -47,37 +47,12 @@ const handleToggleStatus = (id) => {
 
     return (
         <div className="reminders-page">
-        {/* La barra lateral se agregará aquí cuando el componente esté listo.
         <Sidebar />
-      */}
         <div className="reminders-page__content">
         <ReminderList reminders={reminders} onToggleStatus={handleToggleStatus} />
         </div>
     </div>
-    /*<div className="reminders-page">
-        <div className="reminders-page__sidebar">
-        
-        <div className="sidebar">
-            <ul className="sidebar__list">
-            <li className="sidebar__item sidebar__item--active">
-                <span className="sidebar__icon"></span>
-                <span className="sidebar__text">Recordatorio de medicina</span>
-            </li>
-            <li className="sidebar__item">
-                <span className="sidebar__icon"></span>
-                <span className="sidebar__text">Historial</span>
-            </li>
-            <li className="sidebar__item">
-                <span className="sidebar__icon"></span>
-                <span className="sidebar__text">Configuración</span>
-            </li>
-            </ul>
-        </div>
-        </div>
-        <div className="reminders-page__content">
-        <ReminderList reminders={reminders} onToggleStatus={handleToggleStatus} />
-        </div>
-    </div>*/
+    
     );
 };
 
