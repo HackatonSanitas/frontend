@@ -15,3 +15,43 @@
     flex-grow: 1;
     padding: 2rem;
 }
+/* Contenedor para título + botón */
+.reminders-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* título a la izquierda, botón a la derecha */
+  margin-bottom: 1.5rem;
+}
+
+/* Título de recordatorios */
+.reminders-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0d1b4c; /* un azul oscuro corporativo */
+}
+
+/* Botón genérico */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Estilo principal (puedes adaptar colores a tu paleta) */
+.btn--primary {
+  background-color: #0078d4; /* azul */
+  color: #fff;
+  border: none;
+}
+
+/* Hover bonito */
+.btn--primary:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}

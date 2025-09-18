@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './RemindersPage.css';
 import ReminderList from '../../components/reminder-list/ReminderList';
 import Sidebar from '../../layout/sidebar/Sidebar';
+import { Link } from 'react-router-dom';
 
 
 const MOCK_REMINDERS = [
@@ -45,15 +46,36 @@ const handleToggleStatus = (id) => {
     );
 };
 
-    return (
-        <div className="reminders-page">
-        <Sidebar />
-        <div className="reminders-page__content">
-        <ReminderList reminders={reminders} onToggleStatus={handleToggleStatus} />
-        </div>
-    </div>
+    // return (
+    //     <div className="reminders-page">
+    //     <Sidebar />
+    //     <div className="reminders-page__content">
+    //     <ReminderList reminders={reminders} onToggleStatus={handleToggleStatus} />
+    //     </div>
+    // </div>
     
-    );
+    // );
+    return (
+    <div className="reminders-page">
+      <Sidebar />
+
+      <div className="reminders-page__content">
+        {/* Cabecera de la sección con título y botón para crear nuevo medicamento */}
+        <div className="reminders-header">
+          <h2 className="reminders-title">Recordatorios</h2>
+
+          {/* Link actúa como <a> pero usa React Router para navegación SPA */}
+          <Link to="/medications/new" className="btn btn--primary add-med-btn" aria-label="Añadir medicamento">
+            + Añadir medicamento
+          </Link>
+        </div>
+
+        {/* Lista de recordatorios (componente existente) */}
+        <ReminderList reminders={reminders} onToggleStatus={handleToggleStatus} />
+      </div>
+    </div>
+  );
+
 };
 
 export default RemindersPage;

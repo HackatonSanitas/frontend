@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "../style/medicationForm.css";
-import { medicationApi } from "../services/medicationApi"; 
+import { medicationApi } from "../services/medicationApi";
 
 export default function MedicationForm() {
   const [id] = useState("Automático");
@@ -16,7 +16,7 @@ export default function MedicationForm() {
   const [success, setSuccess] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const hasEmpty = (...vals) => vals.some((v) => String(v).trim() === "");
 
   const handleSubmit = async (e) => {
@@ -52,8 +52,8 @@ export default function MedicationForm() {
 
       console.log("Respuesta del backend:", data);
 
-      // navegar al listado tras guardar
-      setTimeout(() => navigate("/medications"), 800);
+      // navegar al listado tras guardar pero funcionara cuando el backend guarde en db
+      setTimeout(() => navigate("/recordatorios"), 800);
 
     } catch (err) {
       console.error(err);
@@ -77,8 +77,8 @@ export default function MedicationForm() {
             <input
               type="text"
               placeholder="Ibuprofeno"
-              value={medication}                        
-              onChange={(e) => setMedication(e.target.value)} 
+              value={medication}
+              onChange={(e) => setMedication(e.target.value)}
             />
           </div>
 
@@ -127,6 +127,14 @@ export default function MedicationForm() {
           <div className="actions">
             <button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Guardando..." : "Guardar"}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              style={{ marginLeft: "10px" }}
+            >
+              Home
             </button>
           </div>
         </form>
