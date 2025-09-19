@@ -1,27 +1,47 @@
 import React from 'react';
 import './Sidebar.css';
-import { FaPills, FaHistory, FaCog } from 'react-icons/fa';
+import { FaPills, FaList, FaCog } from 'react-icons/fa';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
-    return (
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
+  return (
     <div className="sidebar">
-        <div className="sidebar__logo">Sanitas</div>
-        <ul className="sidebar__list">
-        <li className="sidebar__item sidebar__item--active">
-            <FaPills className="sidebar__icon" />
-            <span className="sidebar__text">Recordatorio de medicina</span>
+      <div className="sidebar__logo">Sanitas</div>
+      <ul className="sidebar__list">
+        <li 
+          className={`sidebar__item ${isActive('/recordatorios') ? 'sidebar__item--active' : ''}`}
+          onClick={() => handleNavigation('/recordatorios')}
+          style={{ cursor: 'pointer' }}
+        >
+          <FaPills className="sidebar__icon" />
+          <span className="sidebar__text">Recordatorio de medicina</span>
+        </li>
+        <li 
+          className={`sidebar__item ${isActive('/medications') ? 'sidebar__item--active' : ''}`}
+          onClick={() => handleNavigation('/medications')}
+          style={{ cursor: 'pointer' }}
+        >
+          <FaList className="sidebar__icon" />
+          <span className="sidebar__text">Lista de Medicamentos</span>
         </li>
         <li className="sidebar__item">
-            <FaHistory className="sidebar__icon" />
-            <span className="sidebar__text">Historial</span>
+          <FaCog className="sidebar__icon" />
+          <span className="sidebar__text">Configuración</span>
         </li>
-        <li className="sidebar__item">
-            <FaCog className="sidebar__icon" />
-            <span className="sidebar__text">Configuración</span>
-        </li>
-        </ul>
+      </ul>
     </div>
-    );
+  );
 };
 
 export default Sidebar;
