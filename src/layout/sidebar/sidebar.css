@@ -1,0 +1,52 @@
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background-color: #f9fbfd;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e6e6e6;
+}
+
+.sidebar__logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #0078d4; /* azul Sanitas */
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.sidebar__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar__item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #333;
+    transition: background 0.2s ease;
+}
+
+.sidebar__item:hover {
+    background-color: #e6f0fa;
+}
+
+.sidebar__item--active {
+    background-color: #0078d4;
+    color: #fff;
+}
+
+.sidebar__icon {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.sidebar__text {
+    font-size: 14px;
+}
