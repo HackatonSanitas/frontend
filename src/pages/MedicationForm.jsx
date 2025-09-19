@@ -52,7 +52,7 @@ export default function MedicationForm() {
 
       console.log("Respuesta del backend:", data);
 
-      // navegar al listado tras guardar pero funcionara cuando el backend guarde en db
+      // navegar al listado tras guardar
       setTimeout(() => navigate("/recordatorios"), 800);
 
     } catch (err) {
@@ -131,10 +131,10 @@ export default function MedicationForm() {
 
             <button
               type="button"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/recordatorios")}
               style={{ marginLeft: "10px" }}
             >
-              Home
+              Volver
             </button>
           </div>
         </form>
